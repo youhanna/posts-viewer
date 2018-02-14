@@ -8,6 +8,12 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostsListComponent } from './posts/components/posts-list/posts-list.component';
 import { ErrorComponent } from './components/error/error.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers/index';
+import { EffectsModule } from '@ngrx/effects';
+import { PostEffects } from './posts/effects/post';
+import { PostService } from './services/post';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,9 +32,12 @@ import { ErrorComponent } from './components/error/error.component';
       {path: 'error', component: ErrorComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', redirectTo: 'error', pathMatch: 'full'}
-    ])
+    ]),
+    StoreModule.forRoot(reducers),
+    HttpClientModule,
+    EffectsModule.forRoot([PostEffects])
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
