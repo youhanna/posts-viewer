@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PostEffects } from './posts/effects/post';
 import { PostService } from './services/post';
 import { HttpClientModule } from '@angular/common/http';
+import { PostDetailsComponent } from './posts/components/post-details/post-details.component';
 
 
 @NgModule({
@@ -22,13 +23,15 @@ import { HttpClientModule } from '@angular/common/http';
     NavMenuComponent,
     HomeComponent,
     PostsListComponent,
-    ErrorComponent
+    ErrorComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'posts', component: PostsListComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'posts', component: PostsListComponent},
+      {path: 'post/:id', component: PostDetailsComponent},
       {path: 'error', component: ErrorComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', redirectTo: 'error', pathMatch: 'full'}
