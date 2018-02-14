@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
-import { PostsListComponent } from './components/posts-list/posts-list.component';
+import { PostsListComponent } from './posts/components/posts-list/posts-list.component';
 import { ErrorComponent } from './components/error/error.component';
 
 
