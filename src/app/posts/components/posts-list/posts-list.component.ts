@@ -20,5 +20,4 @@ export class PostsListComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new fromPosts.UpdateAll());
   }
-
 }
