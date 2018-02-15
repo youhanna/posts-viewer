@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post';
+import { Observable } from 'rxjs/Observable';
+import * as fromRoot from '../../../reducers'
+import * as fromPosts from '../../actions/post'
+import { Store, select } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post-details',
@@ -7,17 +12,19 @@ import { Post } from '../../models/post';
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
-  post: Post; 
+  selectedPostId: number;
+  public post$: Observable<Post>; 
 
-  constructor() { }
+  constructor(public store: Store<fromRoot.State>, private route: ActivatedRoute) {
+    route.params.subscribe(params => {
+      this.selectedPostId = params['id']
+    });
+
+    this.post$ = store.select(fromRoot.getSelectedPost);
+  }
 
   ngOnInit() {
-    this.post = {
-      id: 5,
-      title: 'post title',
-      userId: 3,
-      body: 'this is the body'
-    }
+    this.store.dispatch(new fromPosts.Selected(this.selectedPostId));
   }
 
 }

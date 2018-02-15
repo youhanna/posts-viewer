@@ -3,7 +3,8 @@ import { Post } from '../models/post';
 
 export enum PostActionTypes {
     UpdateAll = '[Post] Update All',
-    UpdatedAll = '[Post] Updated All'
+    UpdatedAll = '[Post] Updated All',
+    Selected = '[Post] Selected'
 }
 
 export class UpdateAll implements Action {
@@ -16,4 +17,10 @@ export class UpdatedAll implements Action {
     constructor(public payload: Post[]){}
 }
 
-export type PostActions = UpdateAll | UpdatedAll;
+export class Selected implements Action {
+    readonly type = PostActionTypes.Selected;
+
+    constructor(public payload: number){}
+}
+
+export type PostActions = UpdateAll | UpdatedAll | Selected;

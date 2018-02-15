@@ -15,4 +15,6 @@ export const getPostsState = createFeatureSelector<fromPost.State>('posts');
 export const getPosts = createSelector(
     getPostsState,
     fromPost.getPosts
-  );
+);
+
+export const getSelectedPost = createSelector(getPostsState, fromPost.getSelectedPost);
