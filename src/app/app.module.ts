@@ -15,7 +15,7 @@ import { PostEffects } from './posts/effects/post';
 import { PostService } from './services/post';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDetailsComponent } from './posts/components/post-details/post-details.component';
-
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { PostDetailsComponent } from './posts/components/post-details/post-detai
     ]),
     StoreModule.forRoot(reducers),
     HttpClientModule,
-    EffectsModule.forRoot([PostEffects])
+    EffectsModule.forRoot([PostEffects]),
+    // StoreDevtoolsModule.instrumentStore()
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
