@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post';
 import { Observable } from 'rxjs/Observable';
-import * as fromRoot from '../../../reducers'
-import * as fromPosts from '../../actions/post'
+import * as fromRoot from '../../../reducers';
+import * as fromPosts from '../../actions/post';
+
 import { Store, select } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,13 +14,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostDetailsComponent implements OnInit {
   selectedPostId: number;
-  public post$: Observable<Post>; 
+  public post$: Observable<Post>;
 
   constructor(public store: Store<fromRoot.State>, private route: ActivatedRoute) {
-    route.params.subscribe(params => {
-      this.selectedPostId = params['id']
-    });
-
+    this.selectedPostId = +this.route.snapshot.paramMap.get('id');
     this.post$ = store.select(fromRoot.getSelectedPost);
   }
 

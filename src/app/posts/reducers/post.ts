@@ -1,17 +1,15 @@
-import { PostActions, PostActionTypes } from "../actions/post";
-import { Post } from "../models/post";
-import { createSelector } from "@ngrx/store";
+import { PostActions, PostActionTypes } from '../actions/post';
+import { Post } from '../models/post';
+import { createSelector } from '@ngrx/store';
 
 export interface State {
     posts: Post[];
     selectedPostId: number;
-    selectedPost: Post;
 }
 
 export const initialState: State = {
     posts: [],
-    selectedPostId: 0,
-    selectedPost: null
+    selectedPostId: 0
 };
 
 export function reducer(state = initialState, action: PostActions): State {
@@ -25,8 +23,7 @@ export function reducer(state = initialState, action: PostActions): State {
         case PostActionTypes.Selected: {
             return {
                 ...state,
-                selectedPostId: action.payload,
-                selectedPost: { id: 0, userId: 1, title: 'dfdsg', body: 'sdfsdf' }
+                selectedPostId: action.payload
             };
         }
         default: {
@@ -43,6 +40,6 @@ export const getSelectedPost = createSelector(
     getPosts,
     getSelectedPostId,
     (posts, selectedPostId) => posts.find(p =>
-        p.id == selectedPostId
+        p.id === selectedPostId
     )
 );

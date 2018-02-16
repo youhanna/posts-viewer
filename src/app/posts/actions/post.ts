@@ -14,13 +14,13 @@ export class UpdateAll implements Action {
 export class UpdatedAll implements Action {
     readonly type = PostActionTypes.UpdatedAll;
 
-    constructor(public payload: Post[]){}
+    constructor(public payload: Post[]) {}
 }
 
 export class Selected implements Action {
     readonly type = PostActionTypes.Selected;
 
-    constructor(public payload: number){}
+    constructor(public payload: number) {}
 }
 
 export type PostActions = UpdateAll | UpdatedAll | Selected;
