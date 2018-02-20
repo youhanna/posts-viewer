@@ -18,7 +18,7 @@ import { PostDetailsComponent } from './posts/components/post-details/post-detai
 import { UserNameComponent } from './users/components/user-name/user-name.component';
 import { UserEffects } from './users/effects/user';
 import { UserService } from './services/user';
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { UserService } from './services/user';
     StoreModule.forRoot(reducers),
     HttpClientModule,
     EffectsModule.forRoot([PostEffects, UserEffects]),
-    // StoreDevtoolsModule.instrumentStore()
+    StoreDevtoolsModule.instrument()
   ],
   providers: [PostService, UserService],
   bootstrap: [AppComponent]
