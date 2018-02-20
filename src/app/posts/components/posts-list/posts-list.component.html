@@ -8,7 +8,7 @@
   <tr *ngFor="let post of (posts$ | async)">
     <td>{{post.id}}</td>
     <td>{{post.title}}</td>
-    <td><user-name [userId]='post.userId'></user-name></td>
+    <td><pv-user-name [userId]='post.userId'></pv-user-name></td>
     <td><a [routerLink]="['/post', post.id]">View</a></td>
   </tr>
 </table>
