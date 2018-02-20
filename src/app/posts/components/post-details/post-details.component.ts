@@ -8,7 +8,7 @@ import { Store, select } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-post-details',
+  selector: 'pv-post-details',
   templateUrl: './post-details.component.html',
   styleUrls: ['./post-details.component.css']
 })

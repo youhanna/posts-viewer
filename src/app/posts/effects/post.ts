@@ -19,5 +19,5 @@ export class PostEffects {
         .map(data => new post.UpdatedAll(data))
     );
 
-    constructor(private actions$: Actions, private postsService: PostService){}
+    constructor(private actions$: Actions, private postsService: PostService) {}
 }

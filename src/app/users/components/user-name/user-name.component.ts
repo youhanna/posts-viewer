@@ -7,7 +7,7 @@ import * as fromUser from '../../actions/user';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-  selector: 'user-name',
+  selector: 'pv-user-name',
   templateUrl: './user-name.component.html',
   styleUrls: ['./user-name.component.css']
 })

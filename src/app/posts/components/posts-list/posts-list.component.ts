@@ -6,7 +6,7 @@ import * as fromPosts from '../../actions/post';
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'posts-list',
+  selector: 'pv-posts-list',
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.css']
 })
