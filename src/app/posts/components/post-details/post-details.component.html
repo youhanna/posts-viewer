@@ -1,4 +1,4 @@
-<h1>{{(post$ | async).title}}</h1>
-<div>Id: {{(post$ | async).id}}</div>
-<div>User Id: {{(post$ | async).userId}}</div>
-<p>{{(post$ | async).body}}</p>
+<h1>{{(post$ | async)?.title}}</h1>
+<div>Id: {{(post$ | async)?.id}}</div>
+<div>User Id: {{(post$ | async)?.userId}}</div>
+<p>{{(post$ | async)?.body}}</p>
