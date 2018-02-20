@@ -15,6 +15,9 @@ import { PostEffects } from './posts/effects/post';
 import { PostService } from './services/post';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDetailsComponent } from './posts/components/post-details/post-details.component';
+import { UserNameComponent } from './users/components/user-name/user-name.component';
+import { UserEffects } from './users/effects/user';
+import { UserService } from './services/user';
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
@@ -24,7 +27,8 @@ import { PostDetailsComponent } from './posts/components/post-details/post-detai
     HomeComponent,
     PostsListComponent,
     ErrorComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    UserNameComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +42,10 @@ import { PostDetailsComponent } from './posts/components/post-details/post-detai
     ]),
     StoreModule.forRoot(reducers),
     HttpClientModule,
-    EffectsModule.forRoot([PostEffects]),
+    EffectsModule.forRoot([PostEffects, UserEffects]),
     // StoreDevtoolsModule.instrumentStore()
   ],
-  providers: [PostService],
+  providers: [PostService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
